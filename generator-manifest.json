@@ -1,0 +1,19 @@
+{
+  "branch": "main",
+  "depends_recipe": "",
+  "description_control": "Plugin to backup and restore EPG Data, including integration of EPGRefresh-plugin",
+  "description_recipe": "Plugin to backup and restore EPG Data, including integration of EPGRefresh-plugin",
+  "history_source_dir": "epgbackup",
+  "internal_package_name": "enigma2-plugin-extensions-epgbackup",
+  "module_dir_name": "EPGBackup",
+  "output_subdir": "epgbackup",
+  "package_name": "enigma2-plugin-extensions-epgbackup",
+  "plugin_src_rel": "epgbackup",
+  "python_package": "EPGBackup",
+  "rdepends_recipe": "",
+  "replaces": "",
+  "repo_name": "EPGBackup",
+  "rrecommends": "",
+  "rreplaces": "",
+  "selected_from_plugin_list": true
+}
