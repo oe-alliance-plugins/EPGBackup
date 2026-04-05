@@ -1,20 +1,21 @@
 # for localized messages
-from __future__ import print_function
 from __future__ import absolute_import
-from . import _
+from traceback import format_exc
 
 # Config
-from Components.config import config, ConfigYesNo, ConfigNumber, ConfigSelection, \
-	ConfigSubsection, ConfigSelectionNumber, ConfigDirectory, NoSave
+from Components.config import ConfigDirectory, ConfigNumber, ConfigSelection, ConfigSelectionNumber, ConfigSubsection, ConfigYesNo, NoSave, config
+from Components.PluginComponent import plugins
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Tools.BoundFunction import boundFunction
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, fileExists
+from Tools.Directories import SCOPE_PLUGINS, fileExists, resolveFilename
+from Plugins.Plugin import PluginDescriptor
+
+from . import _
+from .EPGBackupTools import PLUGIN_VERSION, debugOut
 
 # Error-print()
 
-from .EPGBackupTools import debugOut, PLUGIN_VERSION
-from traceback import format_exc
 
 extPrefix = _("EXTENSIONMENU_PREFIX")
 
@@ -66,7 +67,7 @@ try:
 except ImportError:
 	try:
 		from Components.Language import language
-		from Plugins.SystemPlugins.MPHelp import registerHelp, XMLHelpReader
+		from Plugins.SystemPlugins.MPHelp import XMLHelpReader, registerHelp
 		lang = language.getLanguage()[:2]
 
 		HELPPATH = resolveFilename(SCOPE_PLUGINS, "Extensions/EPGBackup")
@@ -85,8 +86,6 @@ except ImportError:
 
 # Plugin
 epgbackup = None
-from Components.PluginComponent import plugins
-from Plugins.Plugin import PluginDescriptor
 
 gUserScriptExists = False
 # Autostart

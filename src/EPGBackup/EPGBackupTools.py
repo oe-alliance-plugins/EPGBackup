@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
 from Components.config import config
 from time import localtime
 from traceback import format_exc
+from Tools import Notifications
 
 # for localized messages
 from . import _
@@ -40,7 +40,6 @@ def _getLogFilename(outfile=None):
 
 # Notification-Domain
 EPGBACKUP_NOTIFICATIONDOMAIN = "EPGBackup"
-from Tools import Notifications
 try:
 	Notifications.notificationQueue.registerDomain(EPGBACKUP_NOTIFICATIONDOMAIN, _("EPGBACKUP_NOTIFICATION_DOMAIN"), deferred_callable=True)
 except Exception:
